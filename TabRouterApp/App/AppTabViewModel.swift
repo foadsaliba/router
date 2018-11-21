@@ -1,2 +1,1 @@
-class AppTabViewModel {
-}
+class AppTabViewModel {}

@@ -1,27 +1,26 @@
 import UIKit
 
+
 class WatchRouter {
 
-    private(set) var watchNowRouter: WatchNowRouter!
-    private(set) var navigationController: UINavigationController!
-
+    private let creator: Creator
+    private(set) var watchNowRouter: WatchNowRouter
+    
+    
     required init(creator: Creator) {
+        self.creator = creator
         watchNowRouter = WatchNowRouter(creator: creator)
-        navigationController = setUpWatch(creator: creator)
     }
-
-    private func setUpWatch(creator: Creator) -> UINavigationController {
-        let viewModel = WatchViewModel(creator: creator)
-        viewModel.didSelectItem = self.didSelectItem()
-        return UINavigationController(rootViewController: WatchViewController(viewModel: viewModel))
-    }
-
-    private func didSelectItem() -> (String) -> Void {
-        return { [weak self] name in
-            guard let self = self else { return }
-            print("did select item", name)
-            self.watchNowRouter.push(to: self.navigationController)
+    
+    
+    func route(to video: Video, from viewController: UIViewController) {
+        let watchNow = WatchNowViewController(router: watchNowRouter, viewModel: WatchNowViewModel(video: video, creator: creator))
+        viewController.present(watchNow, animated: true, completion: nil)
+        
+        watchNowRouter.closeHandler = {
+            viewController.dismiss(animated: true, completion: nil)
         }
+        
     }
 
 }

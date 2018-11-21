@@ -1,26 +1,24 @@
 import UIKit
 
+
 class HomeRouter {
 
-    private(set) var navigationController: UINavigationController!
-    private(set) var articleDetailRouter: ArticleDetailRouter!
-
+    private let creator: Creator
+    private(set) var articleDetailRouter: ArticleDetailRouter
+    
+    
     required init(creator: Creator) {
+        self.creator = creator
         articleDetailRouter = ArticleDetailRouter(creator: creator)
-        navigationController = setUpHome(creator: creator)
     }
-
-    private func setUpHome(creator: Creator) -> UINavigationController {
-        let viewModel = HomeViewModel(creator: creator)
-        viewModel.didSelectItem = self.didSelectItem()
-        return UINavigationController(rootViewController: HomeViewController(viewModel: viewModel))
-    }
-
-    private func didSelectItem() -> (String) -> Void {
-        return { [weak self] name in
-            guard let self = self else { return }
-            print("did select item", name)
-            self.articleDetailRouter.push(to: self.navigationController)
+    
+    
+    func route(to article: Article, from viewController: UIViewController) {
+        let articleDetail = ArticleDetailViewController(router: articleDetailRouter, viewModel: ArticleDetailViewModel(article: article, creator: creator))
+        viewController.navigationController?.pushViewController(articleDetail, animated: true)
+        
+        articleDetailRouter.closeHandler = {
+            viewController.navigationController?.popViewController(animated: true)
         }
     }
 

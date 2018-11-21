@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,11 +29,20 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yu-rt-1rV">
+                    <rect key="frame" x="168" y="395" width="39" height="30"/>
+                    <state key="normal" title="Close"/>
+                    <connections>
+                        <action selector="close:" destination="-1" eventType="touchUpInside" id="rav-8t-FV8"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.82655853430000004" green="0.12364556140000001" blue="0.0071412868040000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="hUj-G7-LQW" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="E9X-Ct-XOW"/>
                 <constraint firstItem="hUj-G7-LQW" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="f9g-yr-YTS"/>
+                <constraint firstItem="6yu-rt-1rV" firstAttribute="top" secondItem="hUj-G7-LQW" secondAttribute="bottom" constant="-4.5" id="hJw-ma-v2H"/>
+                <constraint firstItem="6yu-rt-1rV" firstAttribute="centerX" secondItem="hUj-G7-LQW" secondAttribute="centerX" id="nvb-64-kj6"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="40.799999999999997" y="46.326836581709152"/>
