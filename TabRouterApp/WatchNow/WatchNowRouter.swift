@@ -3,18 +3,18 @@ import UIKit
 
 class WatchNowRouter {
 
-    let creator: Creator!
-    
-    var closeHandler: (() -> Void)?
+    private let creator: Creator!
+    private let rewindHandler: (() -> Void)
 
     
-    required init(creator: Creator) {
+    required init(creator: Creator, rewindHandler: @escaping (() -> Void)) {
         self.creator = creator
+        self.rewindHandler = rewindHandler
     }
     
     
     func rewind() {
-        closeHandler?()
+        rewindHandler()
     }
 
 }

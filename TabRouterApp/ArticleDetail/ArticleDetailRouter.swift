@@ -3,18 +3,18 @@ import UIKit
 
 class ArticleDetailRouter {
 
-    let creator: Creator!
+    private let creator: Creator!
+    private let rewindHandler: (() -> Void)
     
-    var closeHandler: (() -> Void)?
     
-    
-    required init(creator: Creator) {
+    required init(creator: Creator, rewindHandler: @escaping () -> Void) {
         self.creator = creator
+        self.rewindHandler = rewindHandler
     }
     
     
     func rewind() {
-        closeHandler?()
+        rewindHandler()
     }
 
 }

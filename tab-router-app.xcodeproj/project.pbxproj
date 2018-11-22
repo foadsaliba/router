@@ -171,9 +171,9 @@
 		B63D526121A35DCB00E5A411 /* ArticleDetail */ = {
 			isa = PBXGroup;
 			children = (
+				B63D526621A35E6700E5A411 /* ArticleDetailRouter.swift */,
 				B63D526221A35E4D00E5A411 /* ArticleDetailViewModel.swift */,
 				B63D526421A35E5B00E5A411 /* ArticleDetailViewController.swift */,
-				B63D526621A35E6700E5A411 /* ArticleDetailRouter.swift */,
 				B63D526821A35E9A00E5A411 /* ArticleDetailViewController.xib */,
 			);
 			path = ArticleDetail;
